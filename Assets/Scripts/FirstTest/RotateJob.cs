@@ -2,6 +2,7 @@ using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using Random = UnityEngine.Random;
 
 namespace FirstTest
 {
@@ -9,7 +10,7 @@ namespace FirstTest
     public partial struct RotateJob : IJobEntity
     {
         public float DeltaTime;
-
+        
         void Execute(ref Rotation rotation, in RotationSpeed_ForEach rotSpeed)
         {
             quaternion yRot = quaternion.RotateY(rotSpeed.RadiansPerSecond * DeltaTime);
